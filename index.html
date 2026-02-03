@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KonversiKu - Konverter Mata Uang</title>
+    <meta name="description" content="Konverter mata uang dengan kurs real-time. Konversi semua mata uang dunia secara instan.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app">
+        <header class="header">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"/>
+                        <path d="M12 18V6"/>
+                    </svg>
+                </div>
+                <span class="logo-text">KonversiKu</span>
+            </div>
+            <p class="subtitle">Kalkulator pengubah Mata Uang Real-Time</p>
+        </header>
+
+        <main class="converter">
+            <div class="converter-row">
+                <div class="input-section">
+                    <label class="input-label">Jumlah</label>
+                    <input type="text" id="fromAmount" class="amount-input" value="1,000,000" inputmode="decimal">
+                </div>
+                <div class="currency-section">
+                    <label class="input-label">Dari</label>
+                    <button class="currency-select" id="fromCurrencyBtn">
+                        <span class="currency-code" id="fromCurrencyCode">IDR</span>
+                        <span class="currency-name" id="fromCurrencyName">Indonesian Rupiah</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="converter-middle">
+                <button class="swap-button" id="swapBtn" title="Tukar mata uang">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M7 16V4M7 4L3 8M7 4L11 8"/>
+                        <path d="M17 8V20M17 20L21 16M17 20L13 16"/>
+                    </svg>
+                </button>
+                <div class="rate-display"><span id="rateText">Memuat nilai tukar...</span></div>
+            </div>
+
+            <div class="converter-row">
+                <div class="input-section">
+                    <label class="input-label">Hasil Tukar</label>
+                    <input type="text" id="toAmount" class="amount-input result" readonly value="-">
+                </div>
+                <div class="currency-section">
+                    <label class="input-label">Ke</label>
+                    <button class="currency-select" id="toCurrencyBtn">
+                        <span class="currency-code" id="toCurrencyCode">USD</span>
+                        <span class="currency-name" id="toCurrencyName">US Dollar</span>
+                        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                </div>
+            </div>
+
+            <div class="status" id="status"></div>
+        </main>
+
+        <footer class="footer">
+            <p>Dibuat untuk Tugas Pengantar Teknologi Informasi</p>
+            <p>2026 KonversiKu - Aplikasi TI dalam Kehidupan Sehari-hari</p>
+        </footer>
+    </div>
+
+    <div class="modal-overlay" id="currencyModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="modalTitle">Pilih Mata Uang</h2>
+                <button class="modal-close" id="modalClose">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                </button>
+            </div>
+            <div class="modal-search">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <input type="text" id="currencySearch" class="search-input" placeholder="Cari mata uang...">
+            </div>
+            <div class="currency-list" id="currencyList"></div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
